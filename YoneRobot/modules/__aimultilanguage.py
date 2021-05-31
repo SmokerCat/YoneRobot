@@ -14,7 +14,7 @@ from pyrogram import filters
 from YoneRobot import BOT_ID
 from YoneRobot.helper_extra.aichat import add_chat, get_session, remove_chat
 from YoneRobot.pyrogramee.pluginshelper import admins_only, edit_or_reply
-from YoneRobot import pbot as Inaya
+from YoneRobot import pbot as Yone
 
 translator = google_translator()
 import requests
@@ -42,7 +42,7 @@ async def fetch(url):
 yone_chats = []
 en_chats = []
 
-@Inaya.on_message(
+@Yone.on_message(
     filters.command("chatbot") & ~filters.edited & ~filters.bot & ~filters.private
 )
 @admins_only
@@ -59,10 +59,10 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("Inaya AI Already Activated In This Chat")
+            await lel.edit("yone AI Already Activated In This Chat")
             return
         await lel.edit(
-            f"Inaya AI Successfully Added For Users In The Chat {message.chat.id}"
+            f"yone AI Successfully Added For Users In The Chat {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
@@ -72,7 +72,7 @@ async def hmm(_, message):
             await lel.edit("Inaya AI Was Not Activated In This Chat")
             return
         await lel.edit(
-            f"Inaya AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"yone AI Successfully Deactivated For Users In The Chat {message.chat.id}"
         )
 
     elif status == "EN" or status == "en" or status == "english":
@@ -88,7 +88,7 @@ async def hmm(_, message):
         )
 
 
-@Inaya.on_message(
+@Yone.on_message(
     filters.text
     & filters.reply
     & ~filters.bot
@@ -116,7 +116,7 @@ async def hmm(client, message):
         test = msg
         test = test.replace("yone", "Aco")
         test = test.replace("yone", "Aco")
-        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@MissInaya_bott&ownername=@kid_of_telegram"
+        URL = "https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@YoneRobot&ownername=@A_viyu"
 
         try:
             r = requests.request("GET", url=URL)
@@ -202,7 +202,7 @@ async def hmm(client, message):
             return
 
 
-@Inaya.on_message(
+@Yone.on_message(
     filters.text & filters.private & ~filters.edited & filters.reply & ~filters.bot
 )
 async def inuka(client, message):
@@ -253,7 +253,7 @@ async def inuka(client, message):
     # Kang with the credits bitches @InukaASiTH
     test = test.replace("yone", "Aco")
     test = test.replace("yone", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@MissInaya_bot&ownername=@kid_of_telegram"
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@YoneRobot&ownername=@A_viyu"
     try:
         r = requests.request("GET", url=URL)
     except:
@@ -274,8 +274,8 @@ async def inuka(client, message):
         return
 
 
-@Inaya.on_message(
-    filters.regex("inaya|inaya|Inaya|Inaya|Inaya")
+@Yone.on_message(
+    filters.regex("yone|yone|Yone|Yone|Yone")
     & ~filters.bot
     & ~filters.via_bot
     & ~filters.forwarded
